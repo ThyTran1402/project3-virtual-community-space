@@ -1,0 +1,123 @@
+.available-locations {
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-hint {
+    color: white;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px black;
+    text-align: center;
+}
+
+.plaza-map {
+    position: relative;
+    width: 100%;
+    border: 2px solid white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.plaza-map svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.plaza-map polygon {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 3;
+    cursor: pointer;
+    outline: none;
+    transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.plaza-map polygon.active {
+    fill: rgba(217, 29, 242, 0.25);
+    stroke: white;
+}
+
+.venue-label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: auto;
+    margin: 0;
+    padding: 6px 14px;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    font-weight: 800;
+    white-space: nowrap;
+    background-color: rgba(3, 1, 64, 0.75);
+    border: 2px solid white;
+    color: white;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.venue-label.active {
+    opacity: 1;
+    background-color: var(--main-color);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.venue-chips {
+    margin-top: 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.venue-chips a {
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    background-color: rgba(3, 1, 64, 0.8);
+    border: 2px solid white;
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.venue-chips a.active,
+.venue-chips a:hover,
+.venue-chips a:focus-visible {
+    background-color: var(--main-color);
+}
+
+.venue-chips img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .available-locations {
+        padding: 0 16px 30px;
+    }
+
+    .venue-chips {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .venue-label {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .venue-chips {
+        grid-template-columns: 1fr;
+    }
+}
