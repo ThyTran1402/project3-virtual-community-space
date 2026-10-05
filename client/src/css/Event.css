@@ -1,17 +1,46 @@
 .event-information {
     position: relative;
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
     padding: 0px;
-    margin: 20px;
+    margin: 0px;
     border: 2px solid white;
     border-radius: 0px;
+    overflow: hidden;
+    text-align: left;
 }
 
 .event-information img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+}
+
+.event-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 50px 16px 14px;
+    background: linear-gradient(transparent, rgba(3, 1, 64, 0.92));
+}
+
+#root .event-caption h3 {
+    font-size: 1.1em;
+    margin-bottom: 6px;
+}
+
+.event-caption p {
+    margin: 0;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+.event-caption .negative-time-remaining {
+    display: inline-block;
+    padding: 4px 8px;
 }
 
 .event-information-overlay {
@@ -26,16 +55,17 @@
     transition: 0.5s ease;
 }
 
-.event-information:hover .event-information-overlay {
+.event-information:hover .event-information-overlay,
+.event-information:focus-within .event-information-overlay {
     width: 100%;
     left: 0;
 }
 
 .text {
     position: absolute;
-    overflow: hidden;
     top: 50%;
     left: 50%;
+    width: 85%;
     transform: translate(-50%, -50%);
 }
 
@@ -46,6 +76,17 @@
 .text p {
     color: white;
     margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 0.9em;
+}
+
+.text a {
+    color: white;
+    text-decoration: underline;
+}
+
+.event-description {
+    font-style: italic;
 }
 
 .negative-time-remaining {
@@ -54,4 +95,22 @@
     font-weight: 700;
     padding: 10px;
     text-align: center;
+}
+
+.time-remaining i,
+.event-caption .negative-time-remaining i {
+    margin-right: 8px;
+}
+
+/* Events that already happened are dimmed and crossed out */
+.event-passed img {
+    filter: grayscale(1) brightness(0.6);
+}
+
+.event-passed .event-caption h3 {
+    text-decoration: line-through;
+}
+
+.event-passed .event-information-overlay {
+    background-color: rgb(60, 60, 70);
 }

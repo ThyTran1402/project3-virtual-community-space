@@ -1,58 +1,34 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import useNow from '../hooks/useNow'
+import dates from '../utils/dates'
 import '../css/Event.css'
 
-const Event = (props) => {
-
-    const [event, setEvent] = useState([])
-    const [time, setTime] = useState([])
-    const [remaining, setRemaining] = useState([])
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const eventData = await EventsAPI.getEventsById(props.id)
-                setEvent(eventData)
-            }
-            catch (error) {
-                throw error
-            }
-        }) ()
-    }, [])
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const result = await dates.formatTime(event.time)
-                setTime(result)
-            }
-            catch (error) {
-                throw error
-            }
-        }) ()
-    }, [event])
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const timeRemaining = await dates.formatRemainingTime(event.remaining)
-                setRemaining(timeRemaining)
-                dates.formatNegativeTimeRemaining(remaining, event.id)
-            }
-            catch (error) {
-                throw error
-            }
-        }) ()
-    }, [event])
+const Event = ({ title, description, startsAt, image, locationName, locationSlug }) => {
+    const now = useNow()
+    const passed = dates.hasPassed(startsAt, now)
 
     return (
-        <article className='event-information'>
-            <img src={event.image} />
+        <article className={`event-information ${passed ? 'event-passed' : ''}`} tabIndex={0}>
+            <img src={image} alt='' loading='lazy' />
+
+            <div className='event-caption'>
+                <h3>{title}</h3>
+                <p className={passed ? 'negative-time-remaining' : 'time-remaining'}>
+                    <i className={`fa-regular ${passed ? 'fa-calendar-xmark' : 'fa-clock'}`}></i>
+                    {dates.formatRemainingTime(startsAt, now)}
+                </p>
+            </div>
 
             <div className='event-information-overlay'>
                 <div className='text'>
-                    <h3>{event.title}</h3>
-                    <p><i className="fa-regular fa-calendar fa-bounce"></i> {event.date} <br /> {time}</p>
-                    <p id={`remaining-${event.id}`}>{remaining}</p>
+                    <h3>{title}</h3>
+                    <p><i className='fa-regular fa-calendar'></i>{dates.formatDate(startsAt)} <br /> {dates.formatTime(startsAt)}</p>
+                    {locationName && (
+                        <p><i className='fa-solid fa-location-dot'></i><Link to={`/locations/${locationSlug}`}>{locationName}</Link></p>
+                    )}
+                    <p className='event-description'>{description}</p>
+                    {passed && <p className='negative-time-remaining'>This event has passed</p>}
                 </div>
             </div>
         </article>

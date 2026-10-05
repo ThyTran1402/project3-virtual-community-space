@@ -5,6 +5,13 @@ import LocationEvents from './pages/LocationEvents'
 import Events from './pages/Events'
 import './App.css'
 
+const NotFound = () => (
+    <div className='page-message'>
+        <h2>Page not found</h2>
+        <Link to='/' role='button'>Back to the plaza</Link>
+    </div>
+)
+
 const App = () => {
   let element = useRoutes([
     {
@@ -12,24 +19,16 @@ const App = () => {
       element: <Locations />
     },
     {
-      path: '/echolounge',
-      element: <LocationEvents index={1} />
-    },
-    {
-      path: '/houseofblues',
-      element: <LocationEvents index={2} />
-    },
-    {
-      path: '/pavilion',
-      element: <LocationEvents index={3} />
-    },
-    {
-      path: '/americanairlines',
-      element: <LocationEvents index={4} />
+      path: '/locations/:slug',
+      element: <LocationEvents />
     },
     {
       path: '/events',
       element: <Events />
+    },
+    {
+      path: '*',
+      element: <NotFound />
     }
   ])
 
@@ -37,7 +36,7 @@ const App = () => {
     <div className='app'>
 
       <header className='main-header'>
-        <h1>UnityGrid Plaza</h1>
+        <Link to='/' className='site-title'><h1>UnityGrid Plaza</h1></Link>
 
         <div className='header-buttons'>
           <Link to='/' role='button'>Home</Link>
