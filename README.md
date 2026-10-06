@@ -1,4 +1,4 @@
-# WEB103 Project 3 - *UnityGrid Plaza*
+﻿# WEB103 Project 3 - *UnityGrid Plaza*
 
 Submitted by: **Thy Tran**
 
@@ -13,8 +13,8 @@ The following **required** functionality is completed:
 <!-- Make sure to check off completed functionality below -->
 - [x] **The web app uses React to display data from the API**
 - [x] **The web app is connected to a PostgreSQL database, with an appropriately structured `events` table**
-  - [ ] **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
-  - [ ] **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
+  - [x] **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
+  - [x] **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
 - [x] **The web app displays a title.**
 - [x] **Website includes a visual interface that allows users to select a location they would like to view.**
   - [x] *Note: A non-visual list of links to different locations is insufficient.*

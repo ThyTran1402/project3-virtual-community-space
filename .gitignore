@@ -26,3 +26,6 @@ dist-ssr
 
 # Vite build output
 server/public
+
+# Vite dependency cache
+.vite
