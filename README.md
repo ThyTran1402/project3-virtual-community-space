@@ -1,10 +1,10 @@
-﻿# WEB103 Project 3 - *UnityGrid Plaza*
+# WEB103 Project 3 - *UnityGrid Plaza*
 
 Submitted by: **Thy Tran**
 
 About this web app: **UnityGrid Plaza is a virtual community space for a futuristic city plaza. Users click a building on an illustrated map of the plaza to see the events happening there: concerts at The Echo Dome, talks at Spire Commons, rooftop gardens at Greenleaf Terraces, and markets at Prism Pavilion. Data lives in a Render PostgreSQL database, served by an Express API and displayed with React.**
 
-Time spent: **X** hours
+Time spent: 1.5 hours
 
 ## Required Features
 
@@ -13,8 +13,8 @@ The following **required** functionality is completed:
 <!-- Make sure to check off completed functionality below -->
 - [x] **The web app uses React to display data from the API**
 - [x] **The web app is connected to a PostgreSQL database, with an appropriately structured `events` table**
-  - [x] **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
-  - [x] **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
+  - [ ] **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
+  - [ ] **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
 - [x] **The web app displays a title.**
 - [x] **Website includes a visual interface that allows users to select a location they would like to view.**
   - [x] *Note: A non-visual list of links to different locations is insufficient.*
